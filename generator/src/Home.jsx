@@ -6,7 +6,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-function Home({ data, handleChange, image, type }) {
+function Home({ data, handleChange, image, types }) {
   return (
     <div>
       <div className="mainDiv">
@@ -23,19 +23,22 @@ function Home({ data, handleChange, image, type }) {
         </Box>
       </div>
       <div className="cardDiv">
-        <Card sx={{ maxWidth: 400, marginTop: "50px" }}>
-          <Typography variant="h6">Name:{data.name}.</Typography>
+        <Card className="Card" sx={{ maxWidth: 400, marginTop: "50px" }}>
+          <Typography fontWeight={"bold"} variant="h6">
+            Name:{data.name}.
+          </Typography>
           <CardMedia sx={{ marginTop: "20px" }} component="img" image={image} />
 
-          <Typography sx={{ marginTop: "20px" }}>
-            Weight:{data.weight}
+          <Typography fontWeight={"bold"} sx={{ marginTop: "20px" }}>
+            Weight: <br />
+            {data.weight}
           </Typography>
-          {/* <Typography sx={{ marginTop: "20px" }}>
+          <Typography fontWeight={"bold"} sx={{ marginTop: "20px" }}>
             Type:
-            {type.map((value, key) => {
+            {types.map((value, key) => {
               return <div key={key}>{value.type.name}</div>;
             })}
-          </Typography> */}
+          </Typography>
         </Card>
       </div>
     </div>
